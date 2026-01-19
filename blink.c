@@ -1,4 +1,5 @@
 #include "blink.h"
+#include "app.h"
 
 // Время мигания в единицах счётчика таймера (минимум 1)
 #define BLINK_TIME 50

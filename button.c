@@ -1,4 +1,5 @@
 #include "button.h"
+#include "app.h"
 
 #define SW1 sl_button_sw1
 
