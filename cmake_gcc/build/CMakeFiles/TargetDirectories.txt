@@ -1,0 +1,4 @@
+C:/Users/conns/SimplicityStudio/bare_metal/blink_baremetal/cmake_gcc/build/CMakeFiles/slc.dir
+C:/Users/conns/SimplicityStudio/bare_metal/blink_baremetal/cmake_gcc/build/CMakeFiles/blink_baremetal.dir
+C:/Users/conns/SimplicityStudio/bare_metal/blink_baremetal/cmake_gcc/build/CMakeFiles/edit_cache.dir
+C:/Users/conns/SimplicityStudio/bare_metal/blink_baremetal/cmake_gcc/build/CMakeFiles/rebuild_cache.dir

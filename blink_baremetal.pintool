@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<device:XMLDevice xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:device="http://www.silabs.com/ss/hwconfig/document/device.ecore" name="pin_tool.EFR32MG21A020F768IM32" partId="mcu.arm.efr32.mg21.efr32mg21a020f768im32" contextId="com.silabs.sdk.stack.sisdk:2024.12.1._-76035819-535358418">
+  <mode name="DefaultMode">
+    <property object="DefaultMode" propertyId="mode.diagramLocation" value="100, 100"/>
+    <property object="PD00" propertyId="ABModule.selectedRequirement" value="gpio%T%SL_SIMPLE_LED_LED0%T%sl_simple_led_led0_config.h"/>
+    <property object="PD00" propertyId="pin.name" value=""/>
+    <property object="PD00" propertyId="pin.reserve" value="Reserved"/>
+    <property object="PD01" propertyId="ABModule.selectedRequirement" value="gpio%T%SL_SIMPLE_BUTTON_SW1%T%sl_simple_button_SW1_config.h"/>
+    <property object="PD01" propertyId="pin.name" value=""/>
+    <property object="PD01" propertyId="pin.reserve" value="Reserved"/>
+  </mode>
+  <modeTransition>
+    <property object="RESET &#x2192; DefaultMode" propertyId="modeTransition.source" value="RESET"/>
+    <property object="RESET &#x2192; DefaultMode" propertyId="modeTransition.target" value="DefaultMode"/>
+  </modeTransition>
+</device:XMLDevice>

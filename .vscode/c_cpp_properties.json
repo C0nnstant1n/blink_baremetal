@@ -1,0 +1,48 @@
+{
+    "env": {},
+    "configurations": [
+        {
+            "name": "default_config",
+            "includePath": [
+                "${workspaceFolder}/config",
+                "${workspaceFolder}/autogen",
+                "${workspaceFolder}/.",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/Device/SiliconLabs/EFR32MG21/Include",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/common/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/driver/button/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/service/clock_manager/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/service/clock_manager/src",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/CMSIS/Core/Include",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/service/device_manager/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/service/device_init/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/emlib/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/driver/gpio/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/peripheral/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/service/interrupt_manager/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/service/interrupt_manager/inc/arm",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/driver/leddrv/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/service/memory_manager/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/common/toolchain/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/service/system/inc",
+                "C:/Users/conns/.silabs/slt/installs/conan/p/simpl418dd9bdfa44b/p/platform/service/sleeptimer/inc"
+            ],
+            "defines": [
+                "DEBUG_EFM=1",
+                "EFR32MG21A020F768IM32=1",
+                "SL_CODE_COMPONENT_SYSTEM=system",
+                "SL_CODE_COMPONENT_CLOCK_MANAGER=clock_manager",
+                "SL_COMPONENT_CATALOG_PRESENT=1",
+                "SL_CODE_COMPONENT_DEVICE_PERIPHERAL=device_peripheral",
+                "SL_CODE_COMPONENT_HAL_COMMON=hal_common",
+                "SL_CODE_COMPONENT_HAL_GPIO=hal_gpio",
+                "CMSIS_NVIC_VIRTUAL=1",
+                "CMSIS_NVIC_VIRTUAL_HEADER_FILE=\\cmsis_nvic_virtual.h\\",
+                "SL_CODE_COMPONENT_CORE=core",
+                "SL_CODE_COMPONENT_SLEEPTIMER=sleeptimer"
+            ],
+            "compileCommands": "${workspaceFolder}/cmake_gcc/build/compile_commands.json"
+        }
+    ],
+    "version": 4,
+    "enableConfigurationSquiggles": true
+}
