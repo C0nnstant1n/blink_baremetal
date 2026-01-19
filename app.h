@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "sl_sleeptimer.h"
 #include "blink.h"
+#include "button.h"
 
 // Конфигурация таймера (можно переопределить извне)
 #ifndef TOOGLE_DELAY_MS

@@ -1,15 +1,10 @@
-#include "app.h"
-#include "sl_simple_button_instances.h"
-
-#define BUTTON_OFF 0
-#define BUTTON_SHORT_CLIK 1
-#define BUTTON_LONG_CLIK 2
+#include "button.h"
 
 #define SW1 sl_button_sw1
 
 uint8_t button_status;
 
-void button_handle()
+void button_handle(void)
 {
 
     static uint8_t ka_status = 0;
@@ -19,33 +14,41 @@ void button_handle()
 
     switch (ka_status)
     {
-    case BUTTON_SHORT_CLIK:
+    case 0:
         if (sl_simple_button_get_state(&SW1))
         {
             ka_status = 1;
             button_count = timer_count;
         }
         break;
-    case BUTTON_LONG_CLIK:
+    case 1:
         if (!sl_simple_button_get_state(&SW1))
         {
-            if (timer_count - button_count > 3)
+            if ((uint8_t)(timer_count - button_count) > 5)
+                button_status = BUTTON_SHORT_CLIK;
+            ka_status = 0;
+        }
+
+        else
+        {
+            if ((uint8_t)(timer_count - button_count) >= 100)
             {
-                button_status = 1;
-                ka_status = 0;
-            }
-            else
-            {
-                if (timer_count - button_count >= 10)
-                {
-                    button_status = 2;
-                    ka_status = 2;
-                }
+                button_status = BUTTON_LONG_CLIK;
+                ka_status = 2;
             }
         }
+
         break;
 
-    default:
-        break;
+    case 2:
+        if (!sl_simple_button_get_state(&SW1))
+            ka_status = 0;
     }
+}
+
+uint8_t get_button_status(void)
+{
+    uint8_t res = button_status;
+    button_status = 0;
+    return res;
 }

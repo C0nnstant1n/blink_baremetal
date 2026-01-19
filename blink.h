@@ -1,9 +1,7 @@
 #ifndef BLINK_H
 #define BLINK_H
 
-#include <stdint.h>
 #include "sl_simple_led_instances.h"
-#include "app.h"
 
 // Определение экземпляра светодиода (можно переопределить извне)
 #ifndef LED_INSTANCE
