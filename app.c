@@ -1,14 +1,28 @@
 #include "app.h"
-#include "button.h"
-#include "blink.h"
 
-sl_sleeptimer_timer_handle_t timer;
-uint8_t timer_count = 0;
+#define APP_STATUS_LED_OFF 0
+#define APP_STATUS_LED_ON 1
+#define APP_STATUS_BLINK 2
 
-static void on_timeout(sl_sleeptimer_timer_handle_t *handle,
-                       void *data);
+/**
+ * @brief Дескриптор периодического таймера для пробуждения системы
+ */
+static sl_sleeptimer_timer_handle_t timer;
 
-void app_handle(void);
+/**
+ * @brief Счётчик срабатываний таймера (0–255)
+ */
+static uint8_t timer_count = 0;
+
+// === Внутренние функции (не для использования вне модуля) ===
+
+/**
+ * @brief Обработчик срабатывания таймера
+ * @param handle Дескриптор таймера (не используется)
+ * @param data Дополнительные данные (не используются)
+ * @details Увеличивает timer_count на 1 при каждом срабатывании
+ */
+static void on_timeout(sl_sleeptimer_timer_handle_t *handle, void *data);
 
 /**
  * Initialize application.
@@ -47,43 +61,40 @@ uint8_t get_timer_count(void)
 
 void app_handle(void)
 {
-  static uint8_t app_status;
+  static uint8_t app_status = APP_STATUS_LED_OFF;
   uint8_t button_status = get_button_status();
 
   switch (app_status)
   {
-  case 0:
+  case APP_STATUS_LED_OFF:
     if (button_status)
     {
-      if (button_status == 1)
-        app_status = 1;
-      if (button_status == 2)
-        app_status = 2;
+      if (button_status == BUTTON_SHORT_CLIK)
+        app_status = APP_STATUS_LED_ON;
+      if (button_status == BUTTON_LONG_CLIK)
+        app_status = APP_STATUS_BLINK;
     }
     sl_led_turn_off(&sl_led_led0);
     break;
 
-  case 1:
+  case APP_STATUS_LED_ON:
     sl_led_turn_on(&sl_led_led0);
     if (!button_status)
       break;
-    if (button_status == 1)
-      app_status = 0;
-    if (button_status == 2)
-      app_status = 2;
+    if (button_status == BUTTON_SHORT_CLIK)
+      app_status = APP_STATUS_LED_OFF;
+    if (button_status == BUTTON_LONG_CLIK)
+      app_status = APP_STATUS_BLINK;
     break;
 
-  case 2:
+  case APP_STATUS_BLINK:
     blink_process_action();
     if (!button_status)
       break;
-    if (button_status == 1)
-      app_status = 0;
-    if (button_status == 2)
-      app_status = 1;
-    break;
-
-  default:
+    if (button_status == BUTTON_SHORT_CLIK)
+      app_status = APP_STATUS_LED_OFF;
+    if (button_status == BUTTON_LONG_CLIK)
+      app_status = APP_STATUS_LED_ON;
     break;
   }
 }
