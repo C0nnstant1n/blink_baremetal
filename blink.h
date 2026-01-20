@@ -8,8 +8,8 @@
 #define LED_INSTANCE sl_led_led0
 #endif
 
-#define LED_ON 1
-#define LED_OFF 0
+#define LED_ON 1  // светодиод включен
+#define LED_OFF 0 // светодиод включен
 
 /**
  * @brief Функция обработки мигания светодиода.
